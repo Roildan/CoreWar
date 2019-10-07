@@ -6,7 +6,7 @@
 #    By: armoulin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/28 13:51:05 by armoulin          #+#    #+#              #
-#    Updated: 2019/10/04 15:16:26 by lpoinsot         ###   ########.fr        #
+#    Updated: 2019/10/07 14:38:22 by lpoinsot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,14 +26,17 @@ LIBFT		= $(LIBFT_DIR)libftprintf.a
 
 HEADERS_DIR	= ./includes/
 HEADERS_LST	= corewar.h \
-			  op.h
+			  op.h \
+			  error.h
 HEADERS		= $(addprefix $(HEADERS_DIR), $(HEADERS_LST))
 
 INCLUDES	= -I$(HEADERS_DIR) -I$(LIBFT_HEAD)
 LIBRARIES	= -L$(LIBFT_DIR) -lftprintf
 
 SOURCES_DIR	= ./srcs/
-SOURCES_LST	=
+SOURCES_LST	= error.c \
+			  init_vm.c \
+			  main.c
 SOURCES		= $(addprefix $(SOURCES_DIR), $(SOURCES_LST))
 
 OBJECTS_DIR	= ./bin/
