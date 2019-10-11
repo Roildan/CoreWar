@@ -1,0 +1,30 @@
+Dumping annotated program on standard output
+Program size : 22 bytes
+Name : "Canaries des Iloi"
+Comment : "plantation Iroquoise"
+
+0    (3  ) :        zjmp      %:live            
+                    9         0   3             
+                    9         3                 
+
+3          :    live:
+3    (5  ) :        live      %16               
+                    1         0   0   0   16    
+                    1         16                
+
+8    (5  ) :        live      %16               
+                    1         0   0   0   16    
+                    1         16                
+
+13   (3  ) :        zjmp      %:live            
+                    9         255 246           
+                    9         -10               
+
+16   (3  ) :        zjmp      %:live            
+                    9         255 243           
+                    9         -13               
+
+19   (3  ) :        zjmp      %:live            
+                    9         255 240           
+                    9         -16               
+

@@ -6,11 +6,11 @@
 /*   By: lpoinsot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 11:41:48 by lpoinsot          #+#    #+#             */
-/*   Updated: 2019/10/07 14:50:18 by lpoinsot         ###   ########.fr       */
+/*   Updated: 2019/10/11 15:20:15 by lpoinsot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/corewar.h"
+#include "../../includes/virtual_machine/corewar.h"
 
 void		create_champ(char *name, int champ_nb, t_vm *vm)
 {

@@ -6,11 +6,11 @@
 /*   By: lpoinsot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 10:21:57 by lpoinsot          #+#    #+#             */
-/*   Updated: 2019/10/07 14:08:49 by lpoinsot         ###   ########.fr       */
+/*   Updated: 2019/10/11 15:20:23 by lpoinsot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/corewar.h"
+#include "../../includes/virtual_machine/corewar.h"
 
 t_champ			*init_champ(char *name, int champ_nb)
 {

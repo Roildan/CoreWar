@@ -1,5 +1,5 @@
+.comment	"TURTLE FFS U"
 .name 		"turtle"
-.comment	"TURTLE FFS U LAMA"
 
 entry:
 	sti			r1, %:zork, %1
@@ -14,6 +14,8 @@ entry_l1:
 	ld			%439025904, r2
 	ld			%0, r16
 	fork		%:avdef
+
+
 
 ################################################################################
 

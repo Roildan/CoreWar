@@ -6,7 +6,7 @@
 /*   By: lpoinsot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:46:36 by lpoinsot          #+#    #+#             */
-/*   Updated: 2019/10/07 14:36:04 by lpoinsot         ###   ########.fr       */
+/*   Updated: 2019/10/11 15:11:30 by lpoinsot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 typedef struct		s_champ
 {
 	char			name[PROG_NAME_LENGTH];
+	char			*file_name;
 	int				id;
 	t_bool			is_alive;
 }					t_champ;
@@ -73,20 +74,12 @@ typedef struct		s_vm
 /*
 ** INIT_VM.C
 */
-
 t_champ				*init_champ(char *name, int champ_nb);
 t_process			*init_process(void);
 t_vm				*init_vm(void);
 
 /*
-** ERROR.c
-*/
-
-void				exit_msg(char *error);
-
-/*
 ** MAIN.C
 */
-
 void				create_champ(char *name, int champ_nb, t_vm *vm);
 void				get_opt_champs(int ac, char **av, t_vm *vm);

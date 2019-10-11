@@ -6,9 +6,11 @@
 /*   By: zaz <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/04 11:33:27 by zaz               #+#    #+#             */
-/*   Updated: 2019/10/04 11:47:46 by lpoinsot         ###   ########.fr       */
+/*   Updated: 2019/10/11 14:14:31 by lpoinsot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../ft_printf/includes/printf.h"
 
 /*
 ** Toutes les tailles sont en octets.
@@ -74,3 +76,17 @@ typedef struct		header_s
   unsigned int		prog_size;
   char				comment[COMMENT_LENGTH + 1];
 }					header_t;
+
+typedef struct		s_op
+{
+	char			*name;
+	int				nb_param;
+	int				type_param[3];
+	int				op_code;
+	int				nb_cycle;
+	char			*comment;
+	t_bool			have_param_byte;
+	t_bool			is_int;
+}					t_op;
+
+void				print_tab(void);

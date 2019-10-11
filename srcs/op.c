@@ -6,7 +6,7 @@
 /*   By: lpoinsot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 11:40:03 by lpoinsot          #+#    #+#             */
-/*   Updated: 2019/10/04 14:46:21 by lpoinsot         ###   ########.fr       */
+/*   Updated: 2019/10/11 14:17:57 by lpoinsot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,19 @@ t_op    op_tab[17] =
 	{"aff", 1, {T_REG}, 16, 2, "aff", 1, 0},
 	{0, 0, {0}, 0, 0, 0, 0, 0}
 };
+
+void	print_tab(void)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < 16)
+	{
+		ft_printf("%s, %d, [%d, %d, %d], %d, %d, %s, %d, %d\n",
+				op_tab[i].name, op_tab[i].nb_param, op_tab[i].type_param[0],
+				op_tab[i].type_param[1], op_tab[i].type_param[2],
+				op_tab[i].op_code, op_tab[i].nb_cycle, op_tab[i].comment,
+				op_tab[i].have_param_byte, op_tab[i].is_int);
+		i++;
+	}
+}

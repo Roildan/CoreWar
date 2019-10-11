@@ -6,14 +6,14 @@
 /*   By: lpoinsot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 11:59:19 by lpoinsot          #+#    #+#             */
-/*   Updated: 2019/10/07 14:35:36 by lpoinsot         ###   ########.fr       */
+/*   Updated: 2019/10/11 15:20:03 by lpoinsot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/corewar.h"
+#include "../includes/error.h"
 
-void			exit_msg(char *error)
+void			exit_msg(char *error_msg)
 {
-	ft_putendl(error);
+	ft_putendl(error_msg);
 	exit(1);
 }
