@@ -1,1 +1,4 @@
-bin/*
+/bin
+ft_printf/bin
+asm
+corewar

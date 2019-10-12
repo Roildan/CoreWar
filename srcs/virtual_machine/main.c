@@ -59,11 +59,11 @@ void		create_champ(char *name, int champ_nb, t_vm *vm)
 
 void		get_opt_champs(int ac, char **av, t_vm *vm)
 {
-	int		i;
+	//int		i;
 	int		champ_nb;
 	int		arg_nb;
 
-	i = 0;
+	//i = 0;
 	arg_nb = 1;
 	champ_nb = 0;
 	while (arg_nb < ac)

@@ -58,7 +58,9 @@ SOURCES_VM_LST			= main.c \
 SOURCES_VM				= $(addprefix $(SOURCES_VM_DIR), $(SOURCES_VM_LST))
 
 SOURCES_ASM_DIR			= $(SOURCES_DIR)assembler/
-SOURCES_ASM_LST			= main.c
+SOURCES_ASM_LST			= main.c \
+						  read_file.c \
+						  get_str.c
 SOURCES_ASM				= $(addprefix $(SOURCES_ASM_DIR), $(SOURCES_ASM_LST))
 
 # OBJECTS
@@ -80,11 +82,11 @@ OBJECTS_ASM				= $(addprefix $(OBJECTS_ASM_DIR), $(OBJECTS_ASM_LST))
 all:					$(NAME_ASM) $(NAME_VM)
 
 $(NAME_VM):				$(LIBFT) $(OBJECTS_VM_DIR) $(OBJECTS_MUTUAL) $(OBJECTS_VM)
-	@$(CC) $(CFLAGS) $(LIBRARIES) $(INCLUDES) $(OBJECTS_MUTUAL) $(OBJECTS_VM) -o $@
+	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS_MUTUAL) $(OBJECTS_VM) $(LIBRARIES) -o $@
 	@echo "$(NAME_VM): $(GREEN)$(NAME_VM)		compiled.$(RESET)"
 
 $(NAME_ASM):			$(LIBFT) $(OBJECTS_ASM_DIR) $(OBJECTS_MUTUAL) $(OBJECTS_ASM)
-	@$(CC) $(CFLAGS) $(LIBRARIES) $(INCLUDES) $(OBJECTS_MUTUAL) $(OBJECTS_ASM) -o $@
+	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS_MUTUAL) $(OBJECTS_ASM) $(LIBRARIES) -o $@
 	@echo "$(NAME_ASM): $(GREEN)$(NAME_ASM)		compiled.$(RESET)"
 
 $(LIBFT):				FORCE

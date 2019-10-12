@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf/includes/printf.h"
-
 #define ERROR_MALLOC "Could not perform malloc"
 #define USAGE_ASM "Usage ./asm <sourcefile.s>"
 #define ERROR_FILE "Can't read source file "
 #define ERROR_AT "Syntax error at line "
+#define ERROR_NAME_LENGTH "Champion's name is too long"
+#define ERROR_COMMENT_LENGTH "Comment is too long"
 
 /*
 ** ===========

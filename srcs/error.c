@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../ft_printf/includes/printf.h"
 #include "../includes/error.h"
 
 void			exit_msg(char *error_msg)

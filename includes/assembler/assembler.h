@@ -14,7 +14,6 @@
 #include <fcntl.h>
 #include "error.h"
 #include "op.h"
-#include "../ft_printf/includes/printf.h"
 
 /*
 ** =======================
@@ -40,8 +39,10 @@ typedef struct		s_asm
 	header_t		header;
 	t_cmd			*list;
 	t_bool			is_name;
+	int 			i_name;
 	t_bool			got_name;
 	t_bool			is_comment;
+	int 			i_comment;
 	t_bool			got_comment;
 	char			*label;
 	int				nb_line;
@@ -54,5 +55,12 @@ typedef struct		s_asm
 */
 
 /*
-** ERROR.C
+** GET_STR.C
 */
+void				get_header(char *line, t_asm *asmr);
+
+
+/*
+** READ_FILE.C
+*/
+void				read_file(char *file, t_asm *asmr);

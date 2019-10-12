@@ -43,9 +43,7 @@ t_process		*init_process(void)
 t_vm			*init_vm(void)
 {
 	t_vm		*vm;
-	int			i;
-
-	i = 0;
+	
 	if (!(vm = (t_vm *)ft_memalloc(sizeof(t_vm))))
 		exit_msg(ERROR_MALLOC);
 	vm->nb_champs = 0;
