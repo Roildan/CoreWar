@@ -1,9 +1,9 @@
-.name "Canaries des Iloi
-		zefgezg
-		ezzzz"
-.comment "plantation Iroquoise
-		ezfezf
-		efzerz"
+.name "Canaries des Iles
+		Volant gaiement
+		Voila"
+.comment "Plantation Iroquoise
+		Canne à sucre
+		Et Pomme de Terre !"
 
 zjmp %:live
 

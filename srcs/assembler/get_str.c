@@ -70,16 +70,13 @@ static void	handle_comment(char *line, t_asm *asmr)
 
 void	get_header(char *line, t_asm *asmr)
 {
-	while (*line && *line == ' ')
-		line++;;
-	if (!(*line) || *line == COMMENT_CHAR)
-		return ;
-	else if (asmr->is_name)
+	if (asmr->is_name)
 		get_name(line, asmr);
 	else if (asmr->is_comment)
 		get_comment(line, asmr);
 	else if (!asmr->got_name
-		&& !ft_strncmp(line, NAME_CMD_STRING, ft_strlen(NAME_CMD_STRING)))
+		&& !ft_strncmp(line, NAME_CMD_STRING,
+						ft_strlen(NAME_CMD_STRING)))
 		handle_name(line, asmr);
 	else if (!asmr->got_comment
 		&& !ft_strncmp(line, COMMENT_CMD_STRING,

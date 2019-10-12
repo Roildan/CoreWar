@@ -14,8 +14,13 @@
 
 static void	handle_line(char *line, t_asm *asmr)
 {
-	if (!asmr->got_name || !asmr->got_comment)
+	while (*line && *line == ' ')
+		line++;;
+	if (!(*line) || *line == COMMENT_CHAR)
+		return ;
+	else if (!asmr->got_name || !asmr->got_comment)
 		get_header(line, asmr);
+
 }
 
 void		read_file(char *file, t_asm *asmr)

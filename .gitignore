@@ -1,4 +1,5 @@
 /bin
 ft_printf/bin
+ft_printf/libftprintf.a
 asm
 corewar
