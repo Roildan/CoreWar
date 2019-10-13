@@ -16,6 +16,12 @@
 # include <string.h>
 # include "get_next_line.h"
 
+/*
+** ============
+**  STRUCTURES
+** ============
+*/
+
 typedef enum		e_bool
 {
 	FALSE = 0,
@@ -30,11 +36,16 @@ typedef struct		s_list
 }					t_list;
 
 /*
-*******************************
-**         PART ONE          **
-*******************************
+** ===========
+**  FUNCTIONS
+** ===========
 */
 
+/*
+*************************************
+**        MEMORY MANAGEMENT        **
+*************************************
+*/
 void				*ft_memset(void *dest, int ch, size_t count);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t count);
@@ -43,6 +54,32 @@ void				*ft_memccpy(void *dest, const void *src, int c,
 void				*ft_memmove(void *dest, const void *src, size_t count);
 void				*ft_memchr(const void *ptr, int ch, size_t count);
 int					ft_memcmp(const void *lhs, const void *rhs, size_t count);
+void				*ft_memalloc(size_t size);
+void				ft_memdel(void **ap);
+
+
+/*
+*************************************
+**         CHAR OPERATIONS         **
+*************************************
+*/
+int					ft_isspace(int c);
+int					ft_isupper(int c);
+int					ft_islower(int c);
+int					ft_isalpha(int ch);
+int					ft_isdigit(int ch);
+int					ft_isalnum(int ch);
+int					ft_isascii(int ch);
+int					ft_isprint(int ch);
+int					ft_toupper(int ch);
+int					ft_tolower(int ch);
+
+
+/*
+*************************************
+**        STRING OPERATIONS        **
+*************************************
+*/
 size_t				ft_strlen(const char *str);
 char				*ft_strdup(const char *str);
 char				*ft_strcpy(char *dest, const char *src);
@@ -58,22 +95,11 @@ char				*ft_strnstr(const char *str, const char *substr,
 int					ft_strcmp(const char *lhs, const char *rhs);
 int					ft_strncmp(const char *lhs, const char *rhs, size_t count);
 int					ft_atoi(const char *str);
-int					ft_isalpha(int ch);
-int					ft_isdigit(int ch);
-int					ft_isalnum(int ch);
-int					ft_isascii(int ch);
-int					ft_isprint(int ch);
-int					ft_toupper(int ch);
-int					ft_tolower(int ch);
-
-/*
-********************************
-**          PART TWO          **
-********************************
-*/
-
-void				*ft_memalloc(size_t size);
-void				ft_memdel(void **ap);
+long				ft_atol(const char *str);
+char				*ft_itoa(int n);
+char				*ft_itoa_base(int n, int base);
+char				*ft_ntoa_base(unsigned long int nb, int base);
+char				*ft_dtoa(double nb, size_t preci);
 char				*ft_strnew(size_t size);
 void				ft_strdel(char **as);
 void				ft_strclr(char *s);
@@ -87,7 +113,24 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
-char				*ft_itoa(int n);
+void				ft_freetabsplit(char **tab);
+int					ft_str_is_alpha(const char *s);
+int					ft_str_is_lowercase(const char *s);
+int					ft_str_is_uppercase(const char *s);
+char				*ft_strupcase(char *s);
+char				*ft_strlowcase(char *s);
+char				*ft_strndup(const char *str, size_t n);
+char				*ft_strcapitalize(char *s);
+char				*ft_str_addi_front(char c, char *s, size_t iter);
+char				*ft_str_addi_back(char c, char *s, size_t iter);
+t_bool				ft_str_contains(const char *str, char c);
+
+
+/*
+*************************************
+**          DISPLAY TOOLS          **
+*************************************
+*/
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
@@ -97,48 +140,30 @@ void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
-/*
-********************************
-**         BONUS PART         **
-********************************
-*/
 
+/*
+*************************************
+**         LIST OPERATIONS         **
+*************************************
+*/
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void				ft_lstpushback(t_list **alst, t_list *new);
 
 /*
-********************************
-**    ADDITIONAL FUNCTIONS    **
-********************************
+*************************************
+**    NUMBER AND TAB OPERATIONS    **
+*************************************
 */
-
-int					ft_isspace(int c);
-int					ft_isupper(int c);
-int					ft_islower(int c);
-int					ft_str_is_alpha(const char *s);
-int					ft_str_is_lowercase(const char *s);
-int					ft_str_is_uppercase(const char *s);
-char				*ft_strupcase(char *s);
-char				*ft_strlowcase(char *s);
-char				*ft_strndup(const char *str, size_t n);
 void				ft_tabiter_int(int *tab, size_t size, void (*f)(int));
 void				ft_print_tab_int(int *tab, size_t size);
-char				*ft_strcapitalize(char *s);
-char				*ft_str_addi_front(char c, char *s, size_t iter);
-char				*ft_str_addi_back(char c, char *s, size_t iter);
-char				*ft_itoa_base(int n, int base);
-void				ft_lstpushback(t_list **alst, t_list *new);
 int					ft_sqrt(int nb);
-char				*ft_ntoa_base(unsigned long int nb, int base);
-int					get_next_line(const int fd, char **line);
 int					ft_imin(int lhs, int rhs);
 int					ft_imax(int lhs, int rhs);
 int					ft_iabs(int nb);
-char				*ft_dtoa(double nb, size_t preci);
-long				ft_atol(const char *str);
 
 #endif

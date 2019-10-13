@@ -15,12 +15,16 @@
 t_cmd	*new_elem(void)
 {
 	t_cmd	*elem;
+	int 	i;
 
+	i = 0;
 	if (!(elem = (t_cmd *)ft_memalloc(sizeof(t_cmd))))
 		exit_msg(ERROR_MALLOC);
 	elem->op_code = 0;
 	elem->label = NULL;
 	elem->size = 0;
+	while (i < MAX_ARGS_NUMBER)
+		elem->params[i++] = NULL;
 	elem->next = NULL;
 	return (elem);
 }
@@ -40,13 +44,16 @@ t_cmd	*add_elem(t_cmd *list, t_cmd *elem)
 
 void	clear_list(t_cmd *list)
 {
-	t_cmd *cur;
+	t_cmd 	*cur;
+	int		i;
 
 	while (list)
 	{
 		cur = list;
 		if (cur->label)
 			free(cur->label);
+		while (i < MAX_ARGS_NUMBER)
+			free(cur->params[i++]);
 		list = cur->next;
 		free(cur);
 	}

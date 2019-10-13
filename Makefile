@@ -59,8 +59,11 @@ SOURCES_VM				= $(addprefix $(SOURCES_VM_DIR), $(SOURCES_VM_LST))
 
 SOURCES_ASM_DIR			= $(SOURCES_DIR)assembler/
 SOURCES_ASM_LST			= main.c \
+						  list_tools.c \
 						  read_file.c \
-						  get_str.c
+						  get_header.c \
+						  get_label.c \
+						  get_op.c
 SOURCES_ASM				= $(addprefix $(SOURCES_ASM_DIR), $(SOURCES_ASM_LST))
 
 # OBJECTS
