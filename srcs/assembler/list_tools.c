@@ -23,6 +23,7 @@ t_cmd	*new_elem(void)
 	elem->op_code = 0;
 	elem->label = NULL;
 	elem->size = 0;
+	elem->nb_line = 0;
 	while (i < MAX_ARGS_NUMBER)
 		elem->params[i++] = NULL;
 	elem->next = NULL;

@@ -45,7 +45,6 @@ t_bool			check_label(char *str, t_asm *asmr)
 
 void			get_label(char *label, t_asm *asmr)
 {
-	asmr->is_label = TRUE;
 	if (!(asmr->label = ft_strnew(asmr->label_size)))
 		exit_msg(ERROR_MALLOC);
 	ft_strncpy(asmr->label, label, asmr->label_size);

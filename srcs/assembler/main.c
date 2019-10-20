@@ -22,9 +22,8 @@ void	init_asm(t_asm *asmr)
 	asmr->is_comment = FALSE;
 	asmr->i_comment = 0;
 	asmr->got_comment = FALSE;
-	asmr->is_label = FALSE;
-	asmr->label_size = 0;
 	asmr->label = NULL;
+	asmr->label_size = 0;
 	asmr->nb_line = 0;
 	asmr->list = NULL;
 }
@@ -38,7 +37,7 @@ static void		print_list(t_cmd *list)
 	i = 1;
 	while (list)
 	{
-		ft_printf("Instruction n°%d:\n", i++);
+		ft_printf("Instruction n°%d (line: %lu):\n", i++, list->nb_line);
 		if (list->label)
 			ft_printf("\tLabel: %s\n", list->label);
 		ft_printf("\tOp Code: %d\n", list->op_code);

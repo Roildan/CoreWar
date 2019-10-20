@@ -27,31 +27,42 @@ static int		get_op_code(char *str, t_asm *asmr)
 	return -1;
 }
 
+static char		*one_str(char **tab, int i)
+{
+	size_t	size;
+	int		j;
+	char 	*res;
+
+	size = 0;
+	j = i;
+	while (tab[j])
+		size += ft_strlen(tab[j++]);
+	if (!(res = ft_strnew(size)))
+		exit_msg(ERROR_MALLOC);
+	while (tab[i])
+		ft_strcat(res, tab[i++]);
+	return (res);
+}
+
 static void		get_all_op(char **tab, int i, t_asm *asmr)
 {
 	t_cmd	*new;
+	char 	*params;
 
 	new = new_elem();
 	if (asmr->label)
 	{
 		new->label = asmr->label;
 		asmr->label = NULL;
+		asmr->label_size = 0;
 	}
-	new->op_code = get_op_code(tab[i], asmr);
+	new->nb_line = asmr->nb_line;
+	new->op_code = get_op_code(tab[i++], asmr);
+	params = one_str(tab, i);
+	get_params(params, new, asmr);
 	asmr->list = add_elem(asmr->list, new);
+	free(params);
 }
-
-// DEBUG FUNCTION
-/*
-static void		print_tab_split(char **tab)
-{
-	int i;
-
-	i = 0;
-	while (tab[i])
-		ft_printf("[%s] ", tab[i++]);
-	ft_putchar('\n');
-}*/
 
 void			get_op(char *line, t_asm *asmr)
 {
@@ -61,7 +72,7 @@ void			get_op(char *line, t_asm *asmr)
 	i = 0;
 	if (!(tab = ft_strsplit(line, ' ')))
 		exit_msg(ERROR_MALLOC);
-	if (check_label(tab[i], asmr))
+	if (!asmr->label && check_label(tab[i], asmr))
 		get_label(tab[i++], asmr);
 	if (tab[i] && tab[i][0] != COMMENT_CHAR)
 		get_all_op(tab, i++, asmr);

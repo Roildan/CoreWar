@@ -63,7 +63,8 @@ SOURCES_ASM_LST			= main.c \
 						  read_file.c \
 						  get_header.c \
 						  get_label.c \
-						  get_op.c
+						  get_op.c \
+						  get_params.c
 SOURCES_ASM				= $(addprefix $(SOURCES_ASM_DIR), $(SOURCES_ASM_LST))
 
 # OBJECTS
@@ -131,6 +132,6 @@ clean:
 fclean:					clean
 	@make fclean -sC $(LIBFT_DIR)
 	@rm -f $(NAME_VM) $(NAME_ASM)
-	@echo "$(NAME_VM): $(RED)$(NAME_VM) $(NAME_ASM)		deleted.$(RESET)"
+	@echo "$(NAME_VM): $(RED)$(NAME_VM) and $(NAME_ASM)	deleted.$(RESET)"
 
 re:						fclean all

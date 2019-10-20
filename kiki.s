@@ -5,7 +5,7 @@
 		Canne à sucre 
 		Et Pomme de Terre !"
 
-zjmp %:live
+zjmp %:live,sfs,%efe
 
 live_5: #Test du commentaire après un label
 	live %16
@@ -14,3 +14,5 @@ live_5: #Test du commentaire après un label
 test_inline_label: zjmp %:live
 	zjmp %:live
 	zjmp %:live
+test:
+	#c vide!

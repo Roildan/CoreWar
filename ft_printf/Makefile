@@ -74,12 +74,12 @@ all:				$(NAME)
 $(NAME):			$(OBJECTS_DIR) $(OBJECTS)
 	@ar rc $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
-	@echo "\n$(NAME): $(GREEN)binary files	were compiled !$(RESET)"
-	@echo "$(NAME): $(GREEN)$(NAME)	was compiled !$(RESET)"
+	@echo "\n$(NAME): $(GREEN)binary files	compiled !$(RESET)"
+	@echo "$(NAME): $(GREEN)$(NAME)	compiled !$(RESET)"
 
 $(OBJECTS_DIR):
 	@mkdir -p $(OBJECTS_DIR)
-	@echo "$(NAME): $(GREEN)$(OBJECTS_DIR)		was created !$(RESET)"
+	@echo "$(NAME): $(GREEN)$(OBJECTS_DIR)		created !$(RESET)"
 
 $(OBJECTS_DIR)%.o:	$(SOURCES_DIR)%.c $(HEADERS)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
@@ -87,11 +87,11 @@ $(OBJECTS_DIR)%.o:	$(SOURCES_DIR)%.c $(HEADERS)
 
 clean:
 	@rm -rf $(OBJECTS_DIR)
-	@echo "$(NAME): $(RED)$(OBJECTS_DIR)		was deleted.$(RESET)"
-	@echo "$(NAME): $(RED)binary files	were deleted.$(RESET)"
+	@echo "$(NAME): $(RED)$(OBJECTS_DIR)		deleted.$(RESET)"
+	@echo "$(NAME): $(RED)binary files	deleted.$(RESET)"
 
 fclean:				clean
 	@rm -f $(NAME)
-	@echo "$(NAME): $(RED)$(NAME)	was deleted.$(RESET)"
+	@echo "$(NAME): $(RED)$(NAME)	deleted.$(RESET)"
 
 re:					fclean all

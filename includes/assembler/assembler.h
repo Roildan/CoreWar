@@ -30,6 +30,7 @@ typedef struct		s_cmd
 	char			*label;
 	char			*params[MAX_ARGS_NUMBER];
 	int				size;
+	size_t			nb_line;
 	t_cmd			*next;
 }					t_cmd;
 
@@ -48,10 +49,9 @@ typedef struct		s_asm
 	t_bool			is_comment;
 	int 			i_comment;
 	t_bool			got_comment;
-	t_bool			is_label;
-	size_t 			label_size;
 	char			*label;
-	int				nb_line;
+	size_t 			label_size;
+	size_t			nb_line;
 	t_cmd			*list;
 }					t_asm;
 
@@ -88,6 +88,11 @@ void				get_op(char *line, t_asm *asmr);
 */
 t_bool				check_label(char *str, t_asm *asmr);
 void				get_label(char *label, t_asm *asmr);
+
+/*
+** GET_PARAMS.C
+*/
+void				get_params(char *params, t_cmd *new, t_asm *asmr);
 
 
 #endif
