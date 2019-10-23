@@ -42,12 +42,15 @@ void		get_params(char *params, t_cmd *new, t_asm *asmr)
 		if (params[i] == COMMENT_CHAR)
 			return ;
 		if (i_params == MAX_ARGS_NUMBER)
-			exit_msg(ft_strjoin(ERROR_AT, ft_itoa(asmr->nb_line)));
-		new->params[i_params++] = get_param(&params[i], &i);
+			exit_msg(ft_strjoin(ft_strjoin(ERROR_ARGS_NUMBER, ERROR_AT),
+				ft_itoa(asmr->nb_line)));
+		new->params[i_params++].str = get_param(&params[i], &i);
+		new->nb_param++;
 		if (params[i] == SEPARATOR_CHAR) {
 			i++;
-			if (params[i] == COMMENT_CHAR)
-				exit_msg(ft_strjoin(ERROR_AT, ft_itoa(asmr->nb_line)));
+			if (!params[i] || params[i] == COMMENT_CHAR)
+				exit_msg(ft_strjoin(ft_strjoin(ERROR_SYNTAX, ERROR_AT),
+					ft_itoa(asmr->nb_line)));
 		}
 	}
 }

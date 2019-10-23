@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_op.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpoinsot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: armoulin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 13:39:25 by lpoinsot          #+#    #+#             */
-/*   Updated: 2019/10/12 16:43:25 by lpoinsot         ###   ########.fr       */
+/*   Created: 2019/10/12 13:39:25 by armoulin          #+#    #+#             */
+/*   Updated: 2019/10/12 16:43:25 by armoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static int		get_op_code(char *str, t_asm *asmr)
 			return asmr->op_tab[i].op_code;
 		i++;
 	}
-	exit_msg(ft_strjoin(ERROR_AT, ft_itoa(asmr->nb_line)));
+	exit_msg(ft_strjoin(ft_strjoin(ERROR_OP_NAME, ERROR_AT),
+			ft_itoa(asmr->nb_line)));
 	return -1;
 }
 

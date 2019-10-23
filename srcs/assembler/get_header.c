@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_header.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpoinsot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: armoulin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 13:39:25 by lpoinsot          #+#    #+#             */
-/*   Updated: 2019/10/12 16:43:25 by lpoinsot         ###   ########.fr       */
+/*   Created: 2019/10/12 13:39:25 by armoulin          #+#    #+#             */
+/*   Updated: 2019/10/12 16:43:25 by armoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,11 @@ static void	get_comment(char *line, t_asm *asmr)
 static void	handle_name(char *line, t_asm *asmr)
 {
 	line += ft_strlen(NAME_CMD_STRING);
-	while (*line == ' ')
+	while (ft_isspace(*line))
 		line++;
 	if (*line != '"')
-		exit_msg(ft_strjoin(ERROR_AT, ft_itoa(asmr->nb_line)));
+		exit_msg(ft_strjoin(ft_strjoin(ERROR_SYNTAX, ERROR_AT),
+			ft_itoa(asmr->nb_line)));
 	line++;
 	asmr->is_name = TRUE;
 	get_name(line, asmr);
@@ -59,10 +60,11 @@ static void	handle_name(char *line, t_asm *asmr)
 static void	handle_comment(char *line, t_asm *asmr)
 {
 	line += ft_strlen(COMMENT_CMD_STRING);
-	while (*line == ' ')
+	while (ft_isspace(*line))
 		line++;
 	if (*line != '"')
-		exit_msg(ft_strjoin(ERROR_AT, ft_itoa(asmr->nb_line)));
+		exit_msg(ft_strjoin(ft_strjoin(ERROR_SYNTAX, ERROR_AT),
+			ft_itoa(asmr->nb_line)));
 	line++;
 	asmr->is_comment = TRUE;
 	get_comment(line, asmr);
@@ -83,5 +85,6 @@ void	get_header(char *line, t_asm *asmr)
 						ft_strlen(COMMENT_CMD_STRING)))
 		handle_comment(line, asmr);
 	else
-		exit_msg(ft_strjoin(ERROR_AT, ft_itoa(asmr->nb_line)));
+		exit_msg(ft_strjoin(ft_strjoin(ERROR_SYNTAX, ERROR_AT),
+			ft_itoa(asmr->nb_line)));
 }

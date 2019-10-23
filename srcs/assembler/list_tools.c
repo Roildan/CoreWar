@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpoinsot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: armoulin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 15:30:42 by lpoinsot          #+#    #+#             */
-/*   Updated: 2019/10/11 15:41:54 by lpoinsot         ###   ########.fr       */
+/*   Created: 2019/10/11 15:30:42 by armoulin          #+#    #+#             */
+/*   Updated: 2019/10/11 15:41:54 by armoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,13 @@ t_cmd	*new_elem(void)
 	elem->label = NULL;
 	elem->size = 0;
 	elem->nb_line = 0;
+	elem->nb_param = 0;
 	while (i < MAX_ARGS_NUMBER)
-		elem->params[i++] = NULL;
+	{
+		elem->params[i].str = NULL;
+		elem->params[i].type = 0;
+		elem->params[i++].value = 0;
+	}
 	elem->next = NULL;
 	return (elem);
 }
@@ -54,7 +59,7 @@ void	clear_list(t_cmd *list)
 		if (cur->label)
 			free(cur->label);
 		while (i < MAX_ARGS_NUMBER)
-			free(cur->params[i++]);
+			free(cur->params[i++].str);
 		list = cur->next;
 		free(cur);
 	}

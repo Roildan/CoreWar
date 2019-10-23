@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assembler.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpoinsot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: armoulin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 13:39:25 by lpoinsot          #+#    #+#             */
-/*   Updated: 2019/10/11 16:43:25 by lpoinsot         ###   ########.fr       */
+/*   Created: 2019/10/11 13:39:25 by armoulin          #+#    #+#             */
+/*   Updated: 2019/10/11 16:43:25 by armoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,25 @@
 **  INSTRUCTION STRUCTURE
 ** =======================
 */
+typedef struct 		s_param
+{
+	char			*str;
+	int 			type;
+	int 			value;
+}					t_param;
+
+/*
+** =======================
+**  INSTRUCTION STRUCTURE
+** =======================
+*/
 typedef struct		s_cmd t_cmd;
 typedef struct		s_cmd
 {
 	int				op_code;
 	char			*label;
-	char			*params[MAX_ARGS_NUMBER];
+	t_param			params[MAX_ARGS_NUMBER];
+	int 			nb_param;
 	int				size;
 	size_t			nb_line;
 	t_cmd			*next;
@@ -93,6 +106,11 @@ void				get_label(char *label, t_asm *asmr);
 ** GET_PARAMS.C
 */
 void				get_params(char *params, t_cmd *new, t_asm *asmr);
+
+/*
+** CHECK_PARAMS.C
+*/
+void				check_params(t_asm *asmr);
 
 
 #endif

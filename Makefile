@@ -6,7 +6,7 @@
 #    By: armoulin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/28 13:51:05 by armoulin          #+#    #+#              #
-#    Updated: 2019/10/11 15:17:17 by lpoinsot         ###   ########.fr        #
+#    Updated: 2019/10/11 15:17:17 by armoulin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,8 @@ SOURCES_ASM_LST			= main.c \
 						  get_header.c \
 						  get_label.c \
 						  get_op.c \
-						  get_params.c
+						  get_params.c \
+						  check_params.c
 SOURCES_ASM				= $(addprefix $(SOURCES_ASM_DIR), $(SOURCES_ASM_LST))
 
 # OBJECTS
