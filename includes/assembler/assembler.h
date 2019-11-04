@@ -28,6 +28,7 @@ typedef struct 		s_param
 	char			*str;
 	int 			type;
 	int 			value;
+	char 			*temp;
 }					t_param;
 
 /*
@@ -42,7 +43,7 @@ typedef struct		s_cmd
 	char			*label;
 	t_param			params[MAX_ARGS_NUMBER];
 	int 			nb_param;
-	int				size;
+	size_t			size;
 	size_t			nb_line;
 	t_cmd			*next;
 }					t_cmd;

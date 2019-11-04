@@ -60,7 +60,8 @@ SOURCES_LST	= ft_memset.c		ft_bzero.c			ft_memcpy.c \
 			  printf.c			print_chars.c		print_sdeci.c \
 			  print_udeci.c		print_oct.c			print_hex.c \
 			  print_pointer.c	print_float.c		ft_imax.c \
-			  ft_freetabsplit.c ft_str_contains.c
+			  ft_freetabsplit.c ft_str_contains.c 	ft_str_is_numeric.c \
+			  ft_splitwhite.c
 SOURCES		= $(addprefix $(SOURCES_DIR), $(SOURCES_LST))
 
 OBJECTS_DIR	= ./bin/

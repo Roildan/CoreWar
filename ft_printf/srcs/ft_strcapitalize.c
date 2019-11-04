@@ -15,24 +15,24 @@
 char	*ft_strcapitalize(char *s)
 {
 	size_t	i;
-	int		is_new_word;
+	t_bool	is_new_word;
 
 	if (!s)
 		return (NULL);
 	i = 0;
-	is_new_word = 1;
+	is_new_word = TRUE;
 	while (s[i])
 	{
 		if (is_new_word)
 		{
 			if (ft_isalnum(s[i]))
 			{
-				is_new_word = 0;
+				is_new_word = FALSE;
 				s[i] = ft_toupper(s[i]);
 			}
 		}
 		else if (ft_isspace(s[i]) || s[i] == '+' || s[i] == '-')
-			is_new_word = 1;
+			is_new_word = TRUE;
 		else
 			s[i] = ft_tolower(s[i]);
 		i++;

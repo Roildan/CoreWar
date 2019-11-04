@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-int		ft_str_is_uppercase(const char *s)
+t_bool	ft_str_is_uppercase(const char *s)
 {
 	if (!s)
-		return (0);
+		return (FALSE);
 	while (*s)
 		if (!ft_isupper(*s++))
-			return (0);
-	return (1);
+			return (FALSE);
+	return (TRUE);
 }

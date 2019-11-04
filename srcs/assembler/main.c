@@ -44,13 +44,29 @@ static void		print_list(t_cmd *list)
 		j = 0;
 		while (j < list->nb_param)
 		{
-			ft_printf("\tParam %d: %s\n", j + 1, list->params[j].str);
+			ft_printf(
+				"\tParam %d:\n\t\tstr: %s\n\t\ttype: %d\n\t\tvalue: %d\n\t\ttemp: %s\n",
+				j + 1, list->params[j].str, list->params[j].type,
+				list->params[j].value, list->params[j].temp);
 			j++;
 		}
 		ft_printf("\tSize: %d\n", list->size);
 		ft_putchar('\n');
 		list = list->next;
 	}
+}
+
+static unsigned int 	get_prog_size(t_cmd *list)
+{
+	unsigned int 	res;
+
+	res = 0;
+	while (list)
+	{
+		res += list->size;
+		list = list->next;
+	}
+	return (res);
 }
 
 int		main(int ac, char **av)
@@ -62,9 +78,11 @@ int		main(int ac, char **av)
 	init_asm(&asmr);
 	read_file(av[1], &asmr);
 	check_params(&asmr);
+	asmr.header.prog_size = get_prog_size(asmr.list);
 	// START DEBUG
 	ft_printf("Name = %s\n", asmr.header.prog_name);
-	ft_printf("Comment = %s\n\n", asmr.header.comment);
+	ft_printf("Comment = %s\n", asmr.header.comment);
+	ft_printf("Prog_Size = %u\n\n", asmr.header.prog_size);
 	print_list(asmr.list);
 	// END DEBUG
 	clear_list(asmr.list);

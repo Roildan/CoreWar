@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_isprint(int ch)
+t_bool	ft_isprint(int ch)
 {
 	return (ch >= ' ' && ch <= '~');
 }

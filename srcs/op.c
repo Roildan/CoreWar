@@ -50,7 +50,7 @@ void	print_tab(void)
 				op_tab[i].name, op_tab[i].nb_param, op_tab[i].type_param[0],
 				op_tab[i].type_param[1], op_tab[i].type_param[2],
 				op_tab[i].op_code, op_tab[i].nb_cycle, op_tab[i].comment,
-				op_tab[i].have_param_byte, op_tab[i].is_int);
+				op_tab[i].have_param_byte, op_tab[i].is_half_int);
 		i++;
 	}
 }
@@ -71,7 +71,7 @@ void	get_op_tab(t_op *tab)
 		tab[i].nb_cycle = op_tab[i].nb_cycle;
 		tab[i].comment = op_tab[i].comment;
 		tab[i].have_param_byte = op_tab[i].have_param_byte;
-		tab[i].is_int = op_tab[i].is_int;
+		tab[i].is_half_int = op_tab[i].is_half_int;
 		i++;
 	}
 }

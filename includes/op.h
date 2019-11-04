@@ -94,7 +94,7 @@ typedef struct		s_op
 	int				nb_cycle;
 	char			*comment;
 	t_bool			have_param_byte;
-	t_bool			is_int;
+	t_bool			is_half_int;
 }					t_op;
 
 /*

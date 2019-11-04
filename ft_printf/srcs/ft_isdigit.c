@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_isdigit(int ch)
+t_bool	ft_isdigit(int ch)
 {
 	return (ch >= '0' && ch <= '9');
 }

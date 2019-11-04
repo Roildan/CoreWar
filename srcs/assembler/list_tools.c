@@ -29,7 +29,8 @@ t_cmd	*new_elem(void)
 	{
 		elem->params[i].str = NULL;
 		elem->params[i].type = 0;
-		elem->params[i++].value = 0;
+		elem->params[i].value = 0;
+		elem->params[i++].temp = NULL;
 	}
 	elem->next = NULL;
 	return (elem);

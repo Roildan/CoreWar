@@ -71,7 +71,7 @@ void			get_op(char *line, t_asm *asmr)
 	int 	i;
 
 	i = 0;
-	if (!(tab = ft_strsplit(line, ' ')))
+	if (!(tab = ft_splitwhite(line)))
 		exit_msg(ERROR_MALLOC);
 	if (!asmr->label && check_label(tab[i], asmr))
 		get_label(tab[i++], asmr);

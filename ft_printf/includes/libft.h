@@ -63,14 +63,14 @@ void				ft_memdel(void **ap);
 **         CHAR OPERATIONS         **
 *************************************
 */
-int					ft_isspace(int c);
-int					ft_isupper(int c);
-int					ft_islower(int c);
-int					ft_isalpha(int ch);
-int					ft_isdigit(int ch);
-int					ft_isalnum(int ch);
-int					ft_isascii(int ch);
-int					ft_isprint(int ch);
+t_bool				ft_isspace(int c);
+t_bool				ft_isupper(int c);
+t_bool				ft_islower(int c);
+t_bool				ft_isalpha(int ch);
+t_bool				ft_isdigit(int ch);
+t_bool				ft_isalnum(int ch);
+t_bool				ft_isascii(int ch);
+t_bool				ft_isprint(int ch);
 int					ft_toupper(int ch);
 int					ft_tolower(int ch);
 
@@ -113,10 +113,12 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
+char 				**ft_splitwhite(char const *s);
 void				ft_freetabsplit(char **tab);
-int					ft_str_is_alpha(const char *s);
-int					ft_str_is_lowercase(const char *s);
-int					ft_str_is_uppercase(const char *s);
+t_bool				ft_str_is_alpha(const char *s);
+t_bool				ft_str_is_numeric(const char *s);
+t_bool				ft_str_is_lowercase(const char *s);
+t_bool				ft_str_is_uppercase(const char *s);
 char				*ft_strupcase(char *s);
 char				*ft_strlowcase(char *s);
 char				*ft_strndup(const char *str, size_t n);
