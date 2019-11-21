@@ -66,6 +66,8 @@ static unsigned int 	get_prog_size(t_cmd *list)
 		res += list->size;
 		list = list->next;
 	}
+	if (res > CHAMP_MAX_SIZE)
+		exit_msg(ERROR_CHAMP_SIZE);
 	return (res);
 }
 
@@ -78,6 +80,7 @@ int		main(int ac, char **av)
 	init_asm(&asmr);
 	read_file(av[1], &asmr);
 	check_params(&asmr);
+	check_labels(&asmr);
 	asmr.header.prog_size = get_prog_size(asmr.list);
 	// START DEBUG
 	ft_printf("Name = %s\n", asmr.header.prog_name);

@@ -24,6 +24,9 @@
 # define ERROR_ARGS_NUMBER		"Too many arguments"
 # define ERROR_NAME_LENGTH		"Champion's name is too long"
 # define ERROR_COMMENT_LENGTH	"Comment is too long"
+# define ERROR_CHAMP_SIZE		"Champion's size is too big"
+# define ERROR_PARAM_VAL		"Wrong argument's value"
+# define ERROR_LABEL_DUPLICATE	"The following label already exist: "
 
 /*
 ** ===========
