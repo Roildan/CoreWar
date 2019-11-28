@@ -40,5 +40,7 @@ void		read_file(char *file, t_asm *asmr)
 		handle_line(line, asmr);
 		free(line);
 	}
+	if (asmr->label)
+		exit_msg(ft_strjoin(ERROR_LABEL_ALONE, asmr->label));
 	close(fd);
 }

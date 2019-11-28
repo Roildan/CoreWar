@@ -10,6 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+	Reste à faire:
+		- Checker si les types de param correspondent aux types attendus.
+		- Écrire tout en binaire.
+		- Faire mass tests pour vérifier tous les cas possibles
+		  (segfault, erreurs non détectées, binaire incorrect).
+*/
+
 #include "../../includes/assembler/assembler.h"
 
 void	init_asm(t_asm *asmr)
@@ -31,8 +39,9 @@ void	init_asm(t_asm *asmr)
 // DEBUG FUNCTION
 static void		print_list(t_cmd *list)
 {
-	int i;
-	int j;
+	int 	i;
+	int 	j;
+	char 	*type;
 
 	i = 1;
 	while (list)
@@ -44,9 +53,15 @@ static void		print_list(t_cmd *list)
 		j = 0;
 		while (j < list->nb_param)
 		{
+			if (list->params[j].type == REG_CODE)
+				type = "REG";
+			else if (list->params[j].type == DIR_CODE)
+				type = "DIR";
+			else
+				type = "IND";
 			ft_printf(
-				"\tParam %d:\n\t\tstr: %s\n\t\ttype: %d\n\t\tvalue: %d\n\t\ttemp: %s\n",
-				j + 1, list->params[j].str, list->params[j].type,
+				"\tParam %d:\n\t\tstr: %s\n\t\ttype: %s\n\t\tvalue: %d\n\t\ttemp: %s\n",
+				j + 1, list->params[j].str, type,
 				list->params[j].value, list->params[j].temp);
 			j++;
 		}

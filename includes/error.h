@@ -27,6 +27,9 @@
 # define ERROR_CHAMP_SIZE		"Champion's size is too big"
 # define ERROR_PARAM_VAL		"Wrong argument's value"
 # define ERROR_LABEL_DUPLICATE	"The following label already exist: "
+# define ERROR_LABEL_ALONE		"The following label doesn't have an associate cmd: "
+# define ERROR_LABEL_UNKNOW		"The following label doesn't exist: "
+# define ERROR_LABEL_CMD		"The following label refer to his own command: "
 
 /*
 ** ===========
