@@ -66,6 +66,7 @@ SOURCES_ASM_LST			= main.c \
 						  get_op.c \
 						  get_params.c \
 						  check_params.c \
+						  check_types.c \
 						  check_labels.c
 SOURCES_ASM				= $(addprefix $(SOURCES_ASM_DIR), $(SOURCES_ASM_LST))
 

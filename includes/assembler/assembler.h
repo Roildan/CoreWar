@@ -114,6 +114,11 @@ void				get_params(char *params, t_cmd *new, t_asm *asmr);
 void				check_params(t_asm *asmr);
 
 /*
+** CHECK_TYPES.C
+*/
+void				check_types(t_asm *asmr);
+
+/*
 ** CHECK_LABELS.C
 */
 void				check_labels(t_asm *asmr);

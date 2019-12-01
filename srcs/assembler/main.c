@@ -12,7 +12,6 @@
 
 /*
 	Reste à faire:
-		- Checker si les types de param correspondent aux types attendus.
 		- Écrire tout en binaire.
 		- Faire mass tests pour vérifier tous les cas possibles
 		  (segfault, erreurs non détectées, binaire incorrect).
@@ -95,6 +94,7 @@ int		main(int ac, char **av)
 	init_asm(&asmr);
 	read_file(av[1], &asmr);
 	check_params(&asmr);
+	check_types(&asmr);
 	check_labels(&asmr);
 	asmr.header.prog_size = get_prog_size(asmr.list);
 	// START DEBUG
@@ -102,6 +102,7 @@ int		main(int ac, char **av)
 	ft_printf("Comment = %s\n", asmr.header.comment);
 	ft_printf("Prog_Size = %u\n\n", asmr.header.prog_size);
 	print_list(asmr.list);
+	//print_tab();
 	// END DEBUG
 	clear_list(asmr.list);
 	return (0);
